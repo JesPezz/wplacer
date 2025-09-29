@@ -1,0 +1,14 @@
+services:
+  wplacer:
+    container_name: wplacer
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: wplacer-arm64
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    environment:
+      NODE_ENV: production
+    volumes:
+      - ./data:/usr/src/app/data
